@@ -1,0 +1,78 @@
+.saving-goals {
+  display: flex;
+  flex-direction: column;
+}
+
+.saving-goals__inputs {
+  display: inherit;
+  margin-top: 40px;
+}
+
+.saving-goals__inputs--date-container {
+  margin-left: 20px;
+}
+
+.saving-goals__inputs--date {
+  display: flex;
+  width: 230px;
+}
+
+.saving-goals__inputs--date button {
+  cursor: pointer;
+}
+
+.saving-goals__inputs--date button:disabled {
+  cursor: not-allowed;
+  background: #F5F8FA;
+}
+
+.saving-goals__inputs h4 {
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.saving-goals__inputs--dolar-sign {
+  background: #F4F8FA;
+  border: 1px solid #E1E8ED;
+  border-radius: 4px 0px 0px 4px;
+  padding: 15px 21px;
+}
+
+.saving-goals__inputs--amount {
+  display: flex;
+  width: 230px;
+}
+
+.saving-goals__inputs--amount input {
+  font-size: 20px;
+  border: 1px solid #E1E8ED;
+  border-radius: 0 4px 4px 0;
+  width: 100%;
+}
+
+.saving-goals__inputs--left-button,
+.saving-goals__inputs--right-button {
+  padding: 15px 19px;
+  background: #E1E8ED;
+  height: 56px;
+  border: none;
+}
+
+.saving-goals__inputs--right-button {
+  border-radius: 0px 4px 4px 0px;
+}
+
+.saving-goals__inputs--left-button {
+  border-radius: 4px 0px 0px 4px;
+}
+
+.saving-goals__inputs--text {
+  text-align: center;
+  width: 100%;
+}
+
+.saving-goals__inputs--text p {
+  margin: 0;
+}
