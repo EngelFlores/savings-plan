@@ -9,8 +9,13 @@ const PlanSimulationScreen = () => {
     <div className="plan-simulation">
       <Header />
       <div className="plan-simulation__container">
-        <PlanType />
-        <SavingGoals />
+        <h1 className="plan-simulation__container--title">Let's plan your
+          <strong> saving goal.</strong>
+        </h1>
+        <div className="plan-simulation__container--body">
+          <PlanType />
+          <SavingGoals />
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,7 @@
-.plan-simulation__container {
+.plan-simulation {
+  height: calc(100vh - 70px);
+}
+.plan-simulation__container--body {
   display: flex;
   margin: 0 auto;
   border: 1px solid #E1E8ED;
@@ -7,4 +10,20 @@
   width: fit-content;
   padding: 40px;
   flex-direction: column;
+  background: #FFFFFF;
+}
+
+.plan-simulation__container--title {
+  font-weight: 500;
+  color: #1B31A8;
+  text-align: center;
+  font-size: 24px;
+  padding-top: 75px;
+  padding-bottom: 40px;
+  margin: 0;
+}
+
+.plan-simulation__container {
+  background: #F4F8FA;
+  height: 100%;
 }

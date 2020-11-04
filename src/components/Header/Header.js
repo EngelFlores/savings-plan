@@ -9,9 +9,6 @@ const Header = () => {
         className="header__logo"
         src={ logo }
       />
-      <h1 className="header__title">Let's plan your
-        <strong> saving goal.</strong>
-      </h1>
     </div>
   );
 };

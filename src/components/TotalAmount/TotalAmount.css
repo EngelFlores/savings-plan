@@ -1,0 +1,19 @@
+.total-amount__input {
+  display: flex;
+  width: 230px;
+}
+
+.total-amount__input input {
+  font-size: 20px;
+  border: 1px solid #E1E8ED;
+  border-radius: 0 4px 4px 0;
+  width: 100%;
+  font-weight: 600;
+}
+
+.total-amount__input--dolar-sign {
+  background: #F4F8FA;
+  border: 1px solid #E1E8ED;
+  border-radius: 4px 0px 0px 4px;
+  padding: 15px 21px;
+}

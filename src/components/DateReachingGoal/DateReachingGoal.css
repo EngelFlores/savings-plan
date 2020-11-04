@@ -1,0 +1,51 @@
+.date-reaching-goal {
+  margin-left: 20px;
+}
+
+.date-reaching-goal__input {
+  display: flex;
+  width: 230px;
+}
+
+.date-reaching-goal__input button {
+  cursor: pointer;
+}
+
+.date-reaching-goal__input button:disabled {
+  cursor: not-allowed;
+  background: #F5F8FA;
+}
+
+.date-reaching-goal__input--left-button,
+.date-reaching-goal__input--right-button {
+  padding: 15px 19px;
+  background: #E1E8ED;
+  height: 56px;
+  border: none;
+}
+
+.date-reaching-goal__input--right-button {
+  border-radius: 0px 4px 4px 0px;
+}
+
+.date-reaching-goal__input--left-button {
+  border-radius: 4px 0px 0px 4px;
+}
+
+.date-reaching-goal__input--text {
+  text-align: center;
+  width: 100%;
+  border: 1px solid #E1E8ED;
+}
+
+.date-reaching-goal__input p {
+  margin: 0;
+}
+
+.date-reaching-goal__input--month-name {
+  color: #1C1E1F;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  padding-top: 7px;
+}

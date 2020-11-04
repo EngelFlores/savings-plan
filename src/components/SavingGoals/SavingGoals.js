@@ -1,13 +1,12 @@
 import './SavingGoals.css';
 
-
+import {MONTHS_IN_YEAR, ONE_MONTH, ZERO} from '../../constants/numbers';
 import React, {useEffect, useState} from 'react';
+import DateReachingGoal from '../DateReachingGoal/DateReachingGoal';
+import TotalAmount from '../TotalAmount/TotalAmount';
 
-import {ZERO} from '../../constants/numbers';
+import getMonthName from '../../utils/getMonthName';
 
-import arrowLeft from '../../icons/arrowLeft.svg';
-import arrowRight from '../../icons/arrowRight.svg';
-import dollarSign from '../../icons/dollarSign.svg';
 
 const SavingGoals = () => {
   const [goalDate, setGoalDate] = useState( new Date() );
@@ -17,11 +16,10 @@ const SavingGoals = () => {
 
   useEffect( () => {
     const dateNow = new Date();
-    const monthsInYear = 12;
-    const convertYearToMonths = ( goalDate.getFullYear() - dateNow.
-      getFullYear() ) * monthsInYear;
+    const convertYearsToMonths = ( goalDate.getFullYear() - dateNow.
+      getFullYear() ) * MONTHS_IN_YEAR;
     const months = goalDate.getMonth() - dateNow.getMonth();
-    const amountOfMonths = convertYearToMonths + months;
+    const amountOfMonths = convertYearsToMonths + months;
     setNumberOfMonths( amountOfMonths );
   }, [goalDate] );
 
@@ -32,16 +30,14 @@ const SavingGoals = () => {
   }, [numberOfMonths, amountOfMoney] );
 
   const addMonth = () => {
-    const oneMonth = 1;
     const newGoalDate = new Date( goalDate.
-      setMonth( goalDate.getMonth() + oneMonth ) );
+      setMonth( goalDate.getMonth() + ONE_MONTH ) );
     setGoalDate( newGoalDate );
   };
 
   const subtractMonth = () => {
-    const oneMonth = 1;
     const newGoalDate = new Date( goalDate.
-      setMonth( goalDate.getMonth() - oneMonth ) );
+      setMonth( goalDate.getMonth() - ONE_MONTH ) );
     setGoalDate( newGoalDate );
   };
 
@@ -60,44 +56,34 @@ const SavingGoals = () => {
   return (
     <div className="saving-goals">
       <div className="saving-goals__inputs">
-        <div className="saving-goals__inputs--amount-container">
-          <h4>Total amount</h4>
-          <div className="saving-goals__inputs--amount">
-            <div className="saving-goals__inputs--dolar-sign">
-              <img src={ dollarSign } />
-            </div>
-            <input onBlur={ monthlyAmount } />
-          </div>
+        <TotalAmount monthlyAmount={ monthlyAmount } />
+        <DateReachingGoal
+          addMonth={ addMonth }
+          disableButton={ disableButton }
+          goalDate={ goalDate }
+          subtractMonth={ subtractMonth }
+        />
+      </div>
+      <div className={ `saving-goals__output 
+        ${ numberOfMonths && amountOfMoney ? '' : 'hidden' }` }
+      >
+        <div className="saving-goals__output--container--montly-amount">
+          <span className="saving-goals__output--title">Monthly amount</span>
+          <span className="saving-goals__output--montly-amount">
+            {monthlyDeposits ? `$${ monthlyDeposits }`: ''}
+          </span>
         </div>
-        <div className="saving-goals__inputs--date-container">
-          <h4>Reach goal by</h4>
-          <div className="saving-goals__inputs--date">
-            <button
-              className="saving-goals__inputs--left-button"
-              disabled={ disableButton() }
-              onClick={ subtractMonth }
-              type="button"
-            >
-              <img src={ arrowLeft } />
-            </button>
-            <div className="saving-goals__inputs--text">
-              <p>
-                {goalDate.toLocaleString( 'default', {month: 'long'} )}
-              </p>
-              <p>{goalDate.getFullYear()}</p>
-            </div>
-            <button
-              className="saving-goals__inputs--right-button"
-              onClick={ addMonth }
-              type="button"
-            >
-              <img src={ arrowRight } />
-            </button>
-          </div>
+        <div className="saving-goals__output--plan">
+          <span>You’re planning</span>
+          <strong>
+            { ` ${ numberOfMonths } monthly deposit${ numberOfMonths>ONE_MONTH ? 's ' : ' ' }` }
+          </strong>
+          <span>to reach your</span>
+          <strong>{ ` $${ amountOfMoney } ` } </strong>
+          <span>goal by</span>
+          <strong>{` ${ getMonthName( goalDate ) } ${ goalDate.getFullYear() }.`}</strong>
         </div>
       </div>
-      <div>Meses {numberOfMonths ? numberOfMonths : ''}</div>
-      <div>Dinheiro {monthlyDeposits}</div>
     </div>
   );
 };

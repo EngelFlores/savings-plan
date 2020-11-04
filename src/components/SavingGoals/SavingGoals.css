@@ -8,24 +8,6 @@
   margin-top: 40px;
 }
 
-.saving-goals__inputs--date-container {
-  margin-left: 20px;
-}
-
-.saving-goals__inputs--date {
-  display: flex;
-  width: 230px;
-}
-
-.saving-goals__inputs--date button {
-  cursor: pointer;
-}
-
-.saving-goals__inputs--date button:disabled {
-  cursor: not-allowed;
-  background: #F5F8FA;
-}
-
 .saving-goals__inputs h4 {
   font-weight: 500;
   font-size: 16px;
@@ -33,46 +15,42 @@
   margin-bottom: 5px;
 }
 
-.saving-goals__inputs--dolar-sign {
-  background: #F4F8FA;
+.saving-goals__output {
   border: 1px solid #E1E8ED;
-  border-radius: 4px 0px 0px 4px;
-  padding: 15px 21px;
+  box-shadow: 0px 1px 4px rgba(150, 164, 176, 0.1);
+  border-radius: 4px;
+  max-width: 480px;
+  margin-top: 30px;
+  height: 170px;
 }
 
-.saving-goals__inputs--amount {
+.saving-goals__output--container--montly-amount {
   display: flex;
-  width: 230px;
+  padding: 36px;
 }
 
-.saving-goals__inputs--amount input {
-  font-size: 20px;
-  border: 1px solid #E1E8ED;
-  border-radius: 0 4px 4px 0;
-  width: 100%;
+.saving-goals__output--title {
+  font-size: 18px;
+  line-height: 24px;
+  color: #1C1E1F;
+  margin-right: auto;
+  margin-top: 5px;
 }
 
-.saving-goals__inputs--left-button,
-.saving-goals__inputs--right-button {
-  padding: 15px 19px;
-  background: #E1E8ED;
-  height: 56px;
-  border: none;
+.saving-goals__output--montly-amount {
+  color: #0079FF;
+  font-size: 40px;
+  line-height: 32px;
 }
 
-.saving-goals__inputs--right-button {
-  border-radius: 0px 4px 4px 0px;
+.saving-goals__output--plan {
+  background: #F4F8FA;
+  font-size: 15px;
+  line-height: 16px;
+  padding: 16px 32px;
+  border-radius: 0 0 4px 4px;
 }
 
-.saving-goals__inputs--left-button {
-  border-radius: 4px 0px 0px 4px;
-}
-
-.saving-goals__inputs--text {
-  text-align: center;
-  width: 100%;
-}
-
-.saving-goals__inputs--text p {
-  margin: 0;
+.hidden {
+  visibility: hidden;
 }
