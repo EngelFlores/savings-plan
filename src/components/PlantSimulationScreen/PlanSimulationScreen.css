@@ -27,3 +27,9 @@
   background: #F4F8FA;
   height: 100%;
 }
+
+@media (max-width: 565px) {
+  .plan-simulation__container--body {
+    padding: 25px;
+  }
+}

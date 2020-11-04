@@ -49,3 +49,9 @@
   line-height: 24px;
   padding-top: 7px;
 }
+
+@media (max-width: 565px) {
+  .date-reaching-goal {
+    margin-left: 0;
+  }
+}

@@ -21,7 +21,7 @@
   border-radius: 4px;
   max-width: 480px;
   margin-top: 30px;
-  height: 170px;
+  height: fit-content;
 }
 
 .saving-goals__output--container--montly-amount {
@@ -53,4 +53,11 @@
 
 .hidden {
   visibility: hidden;
+}
+
+@media (max-width: 565px) {
+  .saving-goals__inputs {
+    flex-direction: column;
+    align-items: center;
+  }
 }
