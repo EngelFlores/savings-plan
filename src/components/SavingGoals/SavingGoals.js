@@ -1,19 +1,22 @@
 import './SavingGoals.css';
-
-import {ONE_MONTH, ZERO} from '../../constants/numbers';
 import React, {useEffect, useState} from 'react';
+
 import DateReachingGoal from '../DateReachingGoal/DateReachingGoal';
 import PlanSimulationResult from '../PlanSimulationResult/PlanSimulationResult';
 import TotalAmount from '../TotalAmount/TotalAmount';
+import {ZERO} from '../../constants/numbers';
 
 import calculateAmountOfMonths from '../../utils/calculateAmountOfMonths';
 import calculateDeposits from '../../utils/calculateDeposits';
 
+import {useAmountOfMoney} from '../../hooks/useAmountOfMoney/useAmountOfMoney';
+import {useGoalDate} from '../../hooks/useGoalDate/useGoalDate';
+
 const SavingGoals = () => {
-  const [goalDate, setGoalDate] = useState( new Date() );
+  const {addMonth, goalDate, subtractMonth} = useGoalDate();
+  const {amountOfMoney, monthlyAmount} = useAmountOfMoney();
   const [numberOfMonths, setNumberOfMonths] = useState( ZERO );
   const [monthlyDeposits, setMonthlyDeposits] = useState( ZERO );
-  const [amountOfMoney, setAmountOfMoney] = useState( ZERO );
 
   useEffect( () => {
     const amountOfMonths = calculateAmountOfMonths( goalDate );
@@ -24,18 +27,6 @@ const SavingGoals = () => {
     const deposits = calculateDeposits( numberOfMonths, amountOfMoney );
     setMonthlyDeposits( deposits );
   }, [numberOfMonths, amountOfMoney] );
-
-  const addMonth = () => {
-    const newGoalDate = new Date( goalDate.
-      setMonth( goalDate.getMonth() + ONE_MONTH ) );
-    setGoalDate( newGoalDate );
-  };
-
-  const subtractMonth = () => {
-    const newGoalDate = new Date( goalDate.
-      setMonth( goalDate.getMonth() - ONE_MONTH ) );
-    setGoalDate( newGoalDate );
-  };
 
   const disableButton = () => {
     const dateNow = new Date();
@@ -54,12 +45,6 @@ const SavingGoals = () => {
     if ( keyPressed === 'ArrowLeft' && notDisabled ) {
       subtractMonth();
     }
-  };
-
-  const monthlyAmount = ( totalAmount ) => {
-    const convertString = totalAmount.target.value.replace( ',', '' );
-    const amount = parseFloat( convertString );
-    setAmountOfMoney( amount );
   };
 
   return (
