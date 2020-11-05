@@ -7,9 +7,7 @@ import getMonthName from '../../utils/getMonthName';
 
 const PlanSimulationResult = ( {numberOfMonths, amountOfMoney, monthlyDeposits, goalDate} ) => {
   return (
-    <div className={ `plan-simulation-result
-        ${ numberOfMonths && amountOfMoney ? '' : 'hidden' }` }
-    >
+    <div className="plan-simulation-result">
       <div className="plan-simulation-result__container">
         <span className="plan-simulation-result__title">Monthly amount</span>
         <span

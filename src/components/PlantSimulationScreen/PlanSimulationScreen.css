@@ -28,8 +28,25 @@
   height: 100%;
 }
 
+.plan-simulation__container--confirm-button {
+  background: #1B31A8;
+  border-radius: 32px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  margin: 30px 40px 50px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
 @media (max-width: 565px) {
   .plan-simulation__container--body {
     padding: 25px;
+  }
+
+  .plan-simulation__container--confirm-button {
+   margin: 30px 0 50px;
   }
 }

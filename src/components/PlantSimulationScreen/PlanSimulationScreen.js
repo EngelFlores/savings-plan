@@ -15,6 +15,11 @@ const PlanSimulationScreen = () => {
         <div className="plan-simulation__container--body">
           <PlanType />
           <SavingGoals />
+          <button
+            className="plan-simulation__container--confirm-button"
+            type="button"
+          >Confirm
+          </button>
         </div>
       </div>
     </div>

@@ -34,6 +34,15 @@
   border-radius: 0 0 4px 4px;
 }
 
-.hidden {
-  visibility: hidden;
+.plan-simulation-result__body--confirm-button {
+  background: #1B31A8;
+  border-radius: 32px;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  border: none;
+  margin: 30px 40px 50px;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
