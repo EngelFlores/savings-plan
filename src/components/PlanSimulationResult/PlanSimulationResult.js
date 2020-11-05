@@ -1,5 +1,5 @@
 import './PlanSimulationResult.css';
-import {ONE_MONTH} from '../../constants/numbers';
+import {ONE_MONTH, ZERO} from '../../constants/numbers';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -23,7 +23,7 @@ const PlanSimulationResult = ( {numberOfMonths, amountOfMoney, monthlyDeposits, 
           { ` ${ numberOfMonths } monthly deposit${ numberOfMonths>ONE_MONTH ? 's ' : ' ' }` }
         </strong>
         <span>to reach your</span>
-        <strong data-testid="amount-of-money">{ ` $${ amountOfMoney } ` } </strong>
+        <strong data-testid="amount-of-money">{ ` $${ amountOfMoney || ZERO } ` } </strong>
         <span>goal by</span>
         <strong>{` ${ getMonthName( goalDate ) } ${ goalDate.getFullYear() }.`}</strong>
       </div>

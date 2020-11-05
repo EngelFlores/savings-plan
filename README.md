@@ -1,5 +1,15 @@
 ## Savings Plan Simulator
 
+## Requirements
+- [Node.js](https://nodejs.org/en/download/)
+
+### Recommended
+We also recommend you to install the following:
+- [EsLint](https://eslint.org/) used for linting our JS and JSX files.
+
+For text editing we recommend [VS Code](https://code.visualstudio.com/), and installing the aforementioned extensions. Links for the extensions for VS Code are listed below.
+- [EsLint - VSCode](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 
+
 ## Available Scripts
 
 In the project directory, you can run:
