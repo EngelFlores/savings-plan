@@ -17,6 +17,7 @@ const TotalAmount = ( {monthlyAmount} ) => {
         </div>
         <CurrencyFormat
           className="total-amount__input"
+          data-testid="total-amount-input"
           onBlur={ monthlyAmount }
           thousandSeparator={ true }
         />

@@ -63,7 +63,10 @@ const SavingGoals = () => {
   };
 
   return (
-    <div className="saving-goals">
+    <div
+      className="saving-goals"
+      data-testid="saving-goals"
+    >
       <div className="saving-goals__inputs">
         <TotalAmount
           amountOfMoney={ amountOfMoney }

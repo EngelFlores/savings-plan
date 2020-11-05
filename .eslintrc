@@ -52,6 +52,7 @@
     "max-len": [2, 115, 2, {"ignoreUrls": true}],
     "prefer-named-capture-group": "off",
     "require-unicode-regexp": "off",
+    "function-paren-newline": "off",
     "max-lines-per-function": "off",
     "no-plusplus": "off",
     "no-ternary": "off",

@@ -5,6 +5,7 @@ import arrowLeft from '../../icons/arrowLeft.svg';
 import arrowRight from '../../icons/arrowRight.svg';
 
 import getMonthName from '../../utils/getMonthName';
+
 const DateReachingGoal = ( {disableButton, subtractMonth, addMonth, goalDate, onKeyPressed} ) => {
   return (
     <div className="date-reaching-goal">
@@ -12,6 +13,7 @@ const DateReachingGoal = ( {disableButton, subtractMonth, addMonth, goalDate, on
       <div className="date-reaching-goal__input">
         <button
           className="date-reaching-goal__input--left-button"
+          data-testid="subtract-month-button"
           disabled={ disableButton() }
           onClick={ subtractMonth }
           onKeyDown={ onKeyPressed }
@@ -23,14 +25,18 @@ const DateReachingGoal = ( {disableButton, subtractMonth, addMonth, goalDate, on
           />
         </button>
         <div className="date-reaching-goal__input--text">
-          <p className="date-reaching-goal__input--month-name">
+          <p
+            className="date-reaching-goal__input--month-name"
+            data-testid="month-name"
+          >
             {getMonthName( goalDate )}
           </p>
-          <p>{goalDate.getFullYear()}</p>
+          <p data-testid="year">{goalDate.getFullYear()}</p>
         </div>
         <button
           autoFocus={ true }
           className="date-reaching-goal__input--right-button"
+          data-testid="add-month-button"
           onClick={ addMonth }
           onKeyDown={ onKeyPressed }
           type="button"

@@ -12,7 +12,10 @@ const PlanSimulationResult = ( {numberOfMonths, amountOfMoney, monthlyDeposits, 
     >
       <div className="plan-simulation-result__container">
         <span className="plan-simulation-result__title">Monthly amount</span>
-        <span className="plan-simulation-result__montly-amount">
+        <span
+          className="plan-simulation-result__montly-amount"
+          data-testid="monthly-deposits"
+        >
           {monthlyDeposits ? `$${ monthlyDeposits.toLocaleString() }`: ''}
         </span>
       </div>
@@ -22,7 +25,7 @@ const PlanSimulationResult = ( {numberOfMonths, amountOfMoney, monthlyDeposits, 
           { ` ${ numberOfMonths } monthly deposit${ numberOfMonths>ONE_MONTH ? 's ' : ' ' }` }
         </strong>
         <span>to reach your</span>
-        <strong>{ ` $${ amountOfMoney } ` } </strong>
+        <strong data-testid="amount-of-money">{ ` $${ amountOfMoney } ` } </strong>
         <span>goal by</span>
         <strong>{` ${ getMonthName( goalDate ) } ${ goalDate.getFullYear() }.`}</strong>
       </div>

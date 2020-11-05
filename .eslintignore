@@ -1,2 +1,3 @@
 node_modules
 reportWebVitals.js
+**/*.test.js
