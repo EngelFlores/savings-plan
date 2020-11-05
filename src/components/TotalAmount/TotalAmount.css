@@ -1,9 +1,9 @@
-.total-amount__input {
+.total-amount {
   display: flex;
   width: 230px;
 }
 
-.total-amount__input input {
+.total-amount__input {
   font-size: 20px;
   border: 1px solid #E1E8ED;
   border-radius: 0 4px 4px 0;
@@ -11,7 +11,7 @@
   font-weight: 600;
 }
 
-.total-amount__input--dolar-sign {
+.total-amount__dolar-sign {
   background: #F4F8FA;
   border: 1px solid #E1E8ED;
   border-radius: 4px 0px 0px 4px;

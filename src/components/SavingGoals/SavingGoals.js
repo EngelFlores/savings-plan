@@ -1,12 +1,13 @@
 import './SavingGoals.css';
 
-import {MONTHS_IN_YEAR, ONE_MONTH, ZERO} from '../../constants/numbers';
+import {ONE_MONTH, ZERO} from '../../constants/numbers';
 import React, {useEffect, useState} from 'react';
 import DateReachingGoal from '../DateReachingGoal/DateReachingGoal';
+import PlanSimulationResult from '../PlanSimulationResult/PlanSimulationResult';
 import TotalAmount from '../TotalAmount/TotalAmount';
 
-import getMonthName from '../../utils/getMonthName';
-
+import calculateAmountOfMonths from '../../utils/calculateAmountOfMonths';
+import calculateDeposits from '../../utils/calculateDeposits';
 
 const SavingGoals = () => {
   const [goalDate, setGoalDate] = useState( new Date() );
@@ -15,17 +16,12 @@ const SavingGoals = () => {
   const [amountOfMoney, setAmountOfMoney] = useState( ZERO );
 
   useEffect( () => {
-    const dateNow = new Date();
-    const convertYearsToMonths = ( goalDate.getFullYear() - dateNow.
-      getFullYear() ) * MONTHS_IN_YEAR;
-    const months = goalDate.getMonth() - dateNow.getMonth();
-    const amountOfMonths = convertYearsToMonths + months;
+    const amountOfMonths = calculateAmountOfMonths( goalDate );
     setNumberOfMonths( amountOfMonths );
   }, [goalDate] );
 
   useEffect( () => {
-    const deposits = numberOfMonths
-      ? Math.ceil( amountOfMoney/numberOfMonths ) : ZERO;
+    const deposits = calculateDeposits( numberOfMonths, amountOfMoney );
     setMonthlyDeposits( deposits );
   }, [numberOfMonths, amountOfMoney] );
 
@@ -49,41 +45,44 @@ const SavingGoals = () => {
     goalDate.getMonth() <= currentMonth;
   };
 
+  const onKeyPressed = ( value ) => {
+    const keyPressed = value.key;
+    const notDisabled = !disableButton();
+    if ( keyPressed === 'ArrowRight' ) {
+      addMonth();
+    }
+    if ( keyPressed === 'ArrowLeft' && notDisabled ) {
+      subtractMonth();
+    }
+  };
+
   const monthlyAmount = ( totalAmount ) => {
-    setAmountOfMoney( totalAmount.target.value );
+    const convertString = totalAmount.target.value.replace( ',', '' );
+    const amount = parseFloat( convertString );
+    setAmountOfMoney( amount );
   };
 
   return (
     <div className="saving-goals">
       <div className="saving-goals__inputs">
-        <TotalAmount monthlyAmount={ monthlyAmount } />
+        <TotalAmount
+          amountOfMoney={ amountOfMoney }
+          monthlyAmount={ monthlyAmount }
+        />
         <DateReachingGoal
           addMonth={ addMonth }
           disableButton={ disableButton }
           goalDate={ goalDate }
+          onKeyPressed={ onKeyPressed }
           subtractMonth={ subtractMonth }
         />
       </div>
-      <div className={ `saving-goals__output 
-        ${ numberOfMonths && amountOfMoney ? '' : 'hidden' }` }
-      >
-        <div className="saving-goals__output--container--montly-amount">
-          <span className="saving-goals__output--title">Monthly amount</span>
-          <span className="saving-goals__output--montly-amount">
-            {monthlyDeposits ? `$${ monthlyDeposits }`: ''}
-          </span>
-        </div>
-        <div className="saving-goals__output--plan">
-          <span>You’re planning</span>
-          <strong>
-            { ` ${ numberOfMonths } monthly deposit${ numberOfMonths>ONE_MONTH ? 's ' : ' ' }` }
-          </strong>
-          <span>to reach your</span>
-          <strong>{ ` $${ amountOfMoney } ` } </strong>
-          <span>goal by</span>
-          <strong>{` ${ getMonthName( goalDate ) } ${ goalDate.getFullYear() }.`}</strong>
-        </div>
-      </div>
+      <PlanSimulationResult
+        amountOfMoney={ amountOfMoney }
+        goalDate={ goalDate }
+        monthlyDeposits={ monthlyDeposits }
+        numberOfMonths={ numberOfMonths }
+      />
     </div>
   );
 };

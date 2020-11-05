@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div className="header">
       <img
+        alt="Logo Origin"
         className="header__logo"
         src={ logo }
       />

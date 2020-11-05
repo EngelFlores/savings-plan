@@ -6,6 +6,7 @@ const PlanType = () => {
   return (
     <div className="plan-type">
       <img
+        alt="The plan selected to save for a house"
         className="plan-type__logo"
         src={ logo }
       />
